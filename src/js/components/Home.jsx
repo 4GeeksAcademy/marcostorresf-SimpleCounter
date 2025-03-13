@@ -1,26 +1,19 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, {useState} from "react";
+import Counter from "./Counter";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
+  let [seconds, setSeconds] = useState (0)
+  setInterval(() => {
+//   console.log(seconds,"firts")
+  setSeconds (seconds++)
+//   console.log(seconds,"seconds")
+  }, 1000)
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+
+  return (
+		<div className="text-center">
+			<Counter seconds={seconds}/>  	
 		</div>
 	);
 };
